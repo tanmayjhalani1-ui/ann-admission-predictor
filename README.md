@@ -1,3 +1,13 @@
+<div align="center">
+  <img src="assets/portfolio-banner.svg" alt="Graduate Admission Prediction — Tanmay Jhalani" width="100%" />
+</div>
+
+<div align="center">
+  <strong>Designed and engineered by Tanmay Jhalani</strong> · <a href="https://github.com/tanmayjhalani1-ui">GitHub Profile</a>
+</div>
+
+---
+
 # Graduate Admission Prediction
 
 An end-to-end regression project that estimates the historical **Chance of Admit** score from GRE, TOEFL, university rating, SOP, LOR, CGPA and research experience. The original notebook, Streamlit script and CSV are retained.
