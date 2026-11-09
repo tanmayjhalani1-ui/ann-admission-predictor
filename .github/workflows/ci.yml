@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Compile source
+        run: python -m compileall -q src api app.py
+      - name: Train and validate pipeline
+        run: python -m src.train --skip-mlflow
+      - name: Verify artifacts
+        run: |
+          test -s artifacts/admission_pipeline.joblib
+          test -s artifacts/metadata.json
